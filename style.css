@@ -10,15 +10,30 @@ body, html{
     align-items: center;
 }
 
+:root{
+    --white:#F5F5F5;
+    --orange:#ffd4ac;
+    --lightGrey:#cacaca;
+    --blue:#ace0ff;
+    --red:#ffacac;
+}
+
+/**/
+
 .container{
     margin-top: 40px;
     border: 2px black solid;
     background-color: rgb(172, 172, 172);
-    width: 400px;
-    height: 550px;
+    width: auto;
+    height: auto;
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: repeat(4, 1fr);
+    border-radius: 10px;
+}
+
+section{
+    margin: 15px;
 }
 
 /**/
@@ -29,12 +44,13 @@ input{
 }
 
 .result-container{
-    border: 2px solid black;
-    background-color: #dadada;
+    border: 1px solid black;
+    background-color:var(--lightGrey);
     height: 80px;
-    margin: 15px;
+    width: 350px;
     display: flex;
     justify-content: flex-end;
+    border-radius: 10px;
 }
 
 /**/
@@ -44,32 +60,56 @@ input{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -30px;
 }
 
 .keypad-container{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    gap: 5px;
+    gap: 10px;
 }
+
+/*buttons*/
 
 .btn{
     border: none;
     cursor: pointer;
     width: 80px;
-    height: 80px;
+    height: 60px;
+    border: solid 1px black;
+    border-radius: 10px;
+    background-color: var(--white);
 }
 
 button.big{
-    width: 165px;
+    width: 170px;
     grid-column: span 2;
 }
 
 button.operator{
-    background-color: #f7c25f;
+    background-color:var(--orange);
 }
 
 button#equal{
-    background-color: #d4d4d4;
+    background-color:var(--lightGrey);
+}
+
+#clear{
+    background-color: var(--red);
+}
+
+#backspace{
+    background-color: var(--blue);
+}
+
+button p{
+    font-family: 'Bebas Neue',sans-serif;
+    font-size: 25px;
+    letter-spacing: 1px;
+}
+
+input{
+    max-width: 350px;
+    text-align: end;
+    font-size: 30px;
+    font-family: 'Press Start 2P','impact',sans-serif;
 }
