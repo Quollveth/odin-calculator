@@ -49,7 +49,7 @@ input{
     height: 80px;
     width: 350px;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
     border-radius: 10px;
 }
 
@@ -110,6 +110,13 @@ button p{
 input{
     max-width: 350px;
     text-align: end;
-    font-size: 30px;
+    font-size: 10px;
     font-family: 'Press Start 2P','impact',sans-serif;
+    margin: 2px;
+    opacity: 60%;
+}
+
+.result{
+    font-size: 32px;
+    opacity: 100%;
 }
