@@ -16,6 +16,7 @@ function buttonPress(id,isOperator){
         resultField.value = result;
         operationField.value = `${value1} ${operator} ${value2}`;
         value1 = result;
+        number = `${result}`;
     } else if(!isOperator){ //not an operator
         switch(id){
             case 'clear':
