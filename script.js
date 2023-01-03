@@ -53,7 +53,7 @@ function handleNumbers(id){
 
 function handleOperator(id){
     if(operationDone){
-        console.log("hi");
+        operatorSet = false;
         operationDone = false;
         operationDisplay.value = '';
         value1 = parseFloat(result);
