@@ -53,7 +53,10 @@ function handleNumbers(id){
 
 function handleOperator(id){
     if(operationDone){
+        console.log("hi");
         operationDone = false;
+        operationDisplay.value = '';
+        value1 = parseFloat(result);
     }
     if(operatorSet){ //this is the second time operator is pressed
         equal();
@@ -144,4 +147,47 @@ buttons.forEach((element) => {
     element.addEventListener('click', function() {
         handleButtons(element.id);
     });
+});
+//mobile support
+buttons.forEach((element) => {
+    element.addEventListener('touchstart', function() {
+        handleButtons(element.id);
+    });
+});
+
+//keyboard support
+function handleKey(key){
+    console.log(key);
+    if(
+        key == '1' ||
+        key == '2' ||
+        key == '3' ||
+        key == '4' ||
+        key == '5' ||
+        key == '6' ||
+        key == '7' ||
+        key == '8' ||
+        key == '9' ||
+        key == '0' ||
+        key == '.'
+    ){
+        handleNumbers(key);
+    } else if(
+        key == '+' ||
+        key == '-' ||
+        key == '*' ||
+        key == '/'
+    ){
+        handleOperator(key);
+    } else if(key == 'Backspace'){
+        backspace();
+    } else if(key == 'Enter'){
+        equal();
+    } else if(key == 'Delete'){
+        clearDisplay();
+    }
+}
+
+document.addEventListener('keydown', function() {
+    handleKey(event.key);
 });
