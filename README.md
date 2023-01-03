@@ -7,4 +7,6 @@ Made by Klaus "Quollveth"
 Credits:
 Fonts from Google Fonts
 Bebas Neue by Ryoichi Tsunekawa
-Press Start 2P by CodeMan38
+
+Icons from SVGrepo
+lamps by remartwork

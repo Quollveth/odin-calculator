@@ -1,8 +1,11 @@
+const charLimit = 16;
 //dom elements
-let buttons = document.querySelectorAll('.btn');
-let operationDisplay = document.querySelector('.operation');
-let resultDisplay = document.querySelector('.result');
-
+const buttons = document.querySelectorAll('.btn');
+const operationDisplay = document.querySelector('.operation');
+const resultDisplay = document.querySelector('.result');
+const darkModeButton = document.getElementById('darkMode');
+const darkModeElements = document.querySelectorAll('.dark');
+const darkModeImg = document.getElementById('darkModeImg');
 //variables
 let currentNumber = ''; //number currently on display
 let isDecimal = false; //does the current number have a decimal place?
@@ -12,6 +15,8 @@ let operator = '';
 let operatorSet = false; //has the operator been set?
 let result = null;
 let operationDone = false; //is this a typed operation done or a repeat
+
+let darkMode = true;
 
 //MATH!
 function evaluate(value1,value2,operator){
@@ -29,7 +34,7 @@ function evaluate(value1,value2,operator){
 
 // handle the different buttons
 function handleNumbers(id){
-    if(currentNumber.length <= 10){ //character limit
+    if(currentNumber.length < charLimit){ //character limit
         if(operationDone){ //if number is pressed after operation resets the calculator state
             clearDisplay();
         }
@@ -190,4 +195,31 @@ function handleKey(key){
 
 document.addEventListener('keydown', function() {
     handleKey(event.key);
+});
+
+function toggleDarkMode(){
+    console.log(darkMode);
+    if(darkMode){ //enable light mode
+        darkModeElements.forEach((element) =>{
+            element.classList.remove('dark');
+            element.classList.add('light');
+        });
+        darkModeImg.src = 'imgs/light-mode.svg';
+        darkMode = false;
+    }else{ //enable dark mode
+        darkModeElements.forEach((element) =>{
+            element.classList.add('dark');
+            element.classList.remove('light');
+        });
+        darkModeImg.src = 'imgs/dark-mode.svg';
+        darkMode = true;
+    }
+}
+
+//dark mode
+darkModeButton.addEventListener('click', function() {
+    toggleDarkMode();
+});
+darkModeButton.addEventListener('touched', function() {
+    toggleDarkMode();
 });

@@ -4,39 +4,49 @@
 }
 
 body, html{
-    background-color: #F5F5F5;
+    background-color: var(--background);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 :root{
-    --white:#F5F5F5;
-    --orange:#ffd4ac;
-    --lightGrey:#cacaca;
-    --blue:#ace0ff;
-    --red:#ffacac;
+    --white:#ffffff;
+    --black:#1d1d1d;
+    --body:#6b6b6b;
+    /*dark mode*/
+    --dmlight:#cacaca;
+    --dmoperator:#3d3d3d;
+    --dmbutton:#272727;
+    --dmvisor:#272727;
+    --dmbackground:#303030;
+    /*light mode*/
+    --lmlight:#cacaca;
+    --lmoperator:#adadad;
+    --lmbutton:#d8d8d8;
+    --lmvisor:#c4c4c4;
+    --lmbackground:#f5f5f5;
 }
 
-/**/
+/*body*/
 
 .container{
     margin-top: 40px;
     border: 2px black solid;
-    background-color: rgb(172, 172, 172);
     width: auto;
     height: auto;
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: repeat(4, 1fr);
-    border-radius: 10px;
+    border-radius: 3px;
+    background-color: var(--body);
 }
 
 section{
     margin: 15px;
 }
 
-/**/
+/*visor*/
 
 input{
     border:none;
@@ -44,16 +54,28 @@ input{
 }
 
 .result-container{
-    border: 1px solid black;
-    background-color:var(--lightGrey);
     height: 80px;
-    width: 350px;
+    width: 250px;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
+    border-radius: 3px;
 }
 
-/**/
+input{
+    max-width: 350px;
+    text-align: end;
+    font-size: 18px;
+    font-family: 'Bebas Neue',sans-serif;
+    margin: 2px;
+    opacity: 60%;
+}
+
+.result{
+    font-size: 35px;
+    opacity: 100%;
+}
+
+/*keypad*/
 
 .keypad{
     grid-row: 2/5;
@@ -65,7 +87,7 @@ input{
 .keypad-container{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 3px;
 }
 
 /*buttons*/
@@ -73,32 +95,14 @@ input{
 .btn{
     border: none;
     cursor: pointer;
-    width: 80px;
+    width: 60px;
     height: 60px;
-    border: solid 1px black;
-    border-radius: 10px;
-    background-color: var(--white);
+    border-radius: 1px;
 }
 
 button.big{
-    width: 170px;
+    width: 123px;
     grid-column: span 2;
-}
-
-button.operator{
-    background-color:var(--orange);
-}
-
-button#equal{
-    background-color:var(--lightGrey);
-}
-
-#clear{
-    background-color: var(--red);
-}
-
-#backspace{
-    background-color: var(--blue);
 }
 
 button p{
@@ -107,16 +111,66 @@ button p{
     letter-spacing: 1px;
 }
 
-input{
-    max-width: 350px;
-    text-align: end;
-    font-size: 10px;
-    font-family: 'Press Start 2P','impact',sans-serif;
-    margin: 2px;
-    opacity: 60%;
+/*colors*/
+
+/*dark mode*/
+body.dark{
+    background-color: var(--dmbackground);
 }
 
-.result{
-    font-size: 32px;
-    opacity: 100%;
+button.operator.dark{
+    background-color:var(--dmoperator);
+    color: var(--dmlight);
+}
+
+#clear.dark, #backspace.dark{
+    background-color: var(--dmbutton);
+    color: var(--white);
+}
+
+input.dark{
+    color: var(--white);
+}
+
+button p.dark{
+    color:var(--white)
+}
+
+.btn.dark{
+    background-color: var(--dmbutton);
+}
+
+.result-container.dark{
+    background-color:var(--dmvisor);
+}
+
+/*light mode*/
+body.dark{
+    background-color: var(--dmbackground);
+}
+
+button.operator.light{
+    background-color:var(--lmoperator);
+    color: var(--lmlight);
+}
+
+#clear.light, #backspace.light{
+    background-color: var(--lmbutton);
+    color: var(--black);
+}
+
+input.light{
+    color: var(--black);
+}
+
+button p.light{
+    color:var(--black)
+}
+
+.btn.light{
+    background-color: var(--lmbutton);
+}
+
+.result-container.light{
+    background-color:var(--lmvisor);
 }
