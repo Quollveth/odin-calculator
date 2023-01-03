@@ -150,7 +150,7 @@ buttons.forEach((element) => {
 });
 //mobile support
 buttons.forEach((element) => {
-    element.addEventListener('touchstart', function() {
+    element.addEventListener('touched', function() {
         handleButtons(element.id);
     });
 });
