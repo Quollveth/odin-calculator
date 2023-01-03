@@ -55,6 +55,10 @@ function handleOperator(id){
     if(operationDone){
         operationDone = false;
     }
+    if(operatorSet){ //this is the second time operator is pressed
+        equal();
+        operationDone = false;
+    }
     operatorSet = true;
     isDecimal = false;
     operator = id;
